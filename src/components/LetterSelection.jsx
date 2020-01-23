@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function LetterSelection(props) {
-  const { alphabet, toggleClickable } = props;
+  const { alphabet, toggleClickable, checkLetterWord, checkWon } = props;
   return (
     <ul>
       {" "}
@@ -12,6 +12,7 @@ export default function LetterSelection(props) {
               <button
                 onClick={() => {
                   toggleClickable(index);
+                  checkLetterWord(letter.letter);
                 }}
               >
                 {letter.letter}
