@@ -7,12 +7,32 @@ const guessLimit = 1;
 export default class App extends Component {
   state = {
     alphabet: [
-      { letter: "h", clickable: true },
-      { letter: "e", clickable: true },
-      { letter: "l", clickable: true },
-      { letter: "o", clickable: true },
-      { letter: "f", clickable: true },
-      { letter: "g", clickable: true }
+      { letter: "A", clickable: true },
+      { letter: "B", clickable: true },
+      { letter: "C", clickable: true },
+      { letter: "D", clickable: true },
+      { letter: "E", clickable: true },
+      { letter: "F", clickable: true },
+      { letter: "G", clickable: true },
+      { letter: "H", clickable: true },
+      { letter: "I", clickable: true },
+      { letter: "J", clickable: true },
+      { letter: "K", clickable: true },
+      { letter: "L", clickable: true },
+      { letter: "M", clickable: true },
+      { letter: "N", clickable: true },
+      { letter: "O", clickable: true },
+      { letter: "P", clickable: true },
+      { letter: "Q", clickable: true },
+      { letter: "R", clickable: true },
+      { letter: "S", clickable: true },
+      { letter: "T", clickable: true },
+      { letter: "U", clickable: true },
+      { letter: "V", clickable: true },
+      { letter: "W", clickable: true },
+      { letter: "X", clickable: true },
+      { letter: "Y", clickable: true },
+      { letter: "Z", clickable: true }
     ],
     currentWord: [
       { letter: "h", viewable: false },
@@ -28,7 +48,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Header checkWon={this.checkWon} checkLose={this.checkLose}/>
+        <Header checkWon={this.checkWon} checkLose={this.checkLose} />
         <SecretWord currentWord={this.state.currentWord} />
         <LetterSelection
           alphabet={this.state.alphabet}
