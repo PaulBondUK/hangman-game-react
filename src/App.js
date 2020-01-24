@@ -1,45 +1,21 @@
 import Header from "./components/Header";
 import LetterSelection from "./components/LetterSelection";
 import SecretWord from "./components/SecretWord";
+import HangmanDisplay from "./components/HangmanDisplay";
 import "./App.css";
 import React, { Component } from "react";
-const guessLimit = 1;
+import "bootstrap/dist/css/bootstrap.min.css";
+import alphabet from "./components/Data";
+
 export default class App extends Component {
   state = {
-    alphabet: [
-      { letter: "A", clickable: true },
-      { letter: "B", clickable: true },
-      { letter: "C", clickable: true },
-      { letter: "D", clickable: true },
-      { letter: "E", clickable: true },
-      { letter: "F", clickable: true },
-      { letter: "G", clickable: true },
-      { letter: "H", clickable: true },
-      { letter: "I", clickable: true },
-      { letter: "J", clickable: true },
-      { letter: "K", clickable: true },
-      { letter: "L", clickable: true },
-      { letter: "M", clickable: true },
-      { letter: "N", clickable: true },
-      { letter: "O", clickable: true },
-      { letter: "P", clickable: true },
-      { letter: "Q", clickable: true },
-      { letter: "R", clickable: true },
-      { letter: "S", clickable: true },
-      { letter: "T", clickable: true },
-      { letter: "U", clickable: true },
-      { letter: "V", clickable: true },
-      { letter: "W", clickable: true },
-      { letter: "X", clickable: true },
-      { letter: "Y", clickable: true },
-      { letter: "Z", clickable: true }
-    ],
+    alphabet: alphabet,
     currentWord: [
-      { letter: "h", viewable: false },
-      { letter: "e", viewable: false },
-      { letter: "l", viewable: false },
-      { letter: "l", viewable: false },
-      { letter: "o", viewable: false }
+      { letter: "H", viewable: false },
+      { letter: "E", viewable: false },
+      { letter: "L", viewable: false },
+      { letter: "L", viewable: false },
+      { letter: "O", viewable: false }
     ],
     guessedLetters: 0,
     wrongGuesses: 0
@@ -49,6 +25,11 @@ export default class App extends Component {
     return (
       <div>
         <Header checkWon={this.checkWon} checkLose={this.checkLose} />
+        <HangmanDisplay
+          wrongGuesses={this.state.wrongGuesses}
+          guessedLetters={this.state.guessedLetters}
+          currentWord={this.state.currentWord}
+        />
         <SecretWord currentWord={this.state.currentWord} />
         <LetterSelection
           alphabet={this.state.alphabet}
@@ -89,12 +70,5 @@ export default class App extends Component {
         wrongGuesses: currentState.wrongGuesses + newWrongGuesses
       };
     });
-  };
-
-  checkWon = () => {
-    return this.state.guessedLetters === this.state.currentWord.length;
-  };
-  checkLose = () => {
-    return this.state.wrongGuesses === guessLimit;
   };
 }

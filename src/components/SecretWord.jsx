@@ -4,11 +4,11 @@ export default function SecretWord(props) {
   const { currentWord } = props;
   return (
     <div>
-      <ul>
-        {currentWord.map( letter  => {
+      <ul className="secret-word">
+        {currentWord.map(letter => {
           if (letter.viewable === false) {
-            return <li>{"_"}</li>;
-          } else  return <li>{letter.letter}</li>;
+            return <li className="secret-word-letter">{"_"}</li>;
+          } else return <li className="secret-word-letter">{letter.letter}</li>;
         })}
       </ul>
     </div>
