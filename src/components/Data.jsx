@@ -56,10 +56,24 @@ const completedGameAlphabet = [
   { letter: "Z", clickable: false }
 ];
 
-const words = ["PROMISE"];
+const words = [
+  "PROMISES",
+  "JAVASCRIPT",
+  "NORTHCODERS",
+  "REACT",
+  "DATABASES",
+  "COMPONENTWILLUPDATE",
+  "COMPONENTDIDMOUNT",
+  "DUNDERPROTO",
+  "FUNCTION"
+];
 
 const wordPicker = arrayOfWords => {
-  
+  const randomIndex = Math.floor(Math.random() * (arrayOfWords.length - 1));
+  console.log(randomIndex);
+  return arrayOfWords[randomIndex].split("").map(letter => {
+    return { letter: letter, viewable: false };
+  });
 };
 
-export default alphabet;
+export { alphabet, words, wordPicker };

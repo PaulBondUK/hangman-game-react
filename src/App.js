@@ -5,7 +5,7 @@ import HangmanDisplay from "./components/HangmanDisplay";
 import "./App.css";
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import alphabet from "./components/Data";
+import { alphabet, words, wordPicker } from "./components/Data";
 
 export default class App extends Component {
   state = {
@@ -40,6 +40,11 @@ export default class App extends Component {
       </div>
     );
   }
+
+  componentDidMount = () => {
+    console.log("word picker");
+    this.setState({ currentWord: wordPicker(words) });
+  };
 
   toggleClickable = clickedIndex => {
     this.setState(currentState => {
